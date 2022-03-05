@@ -11,6 +11,7 @@ export interface UserLogin {
   id: string;
   name: string;
   avatar: string;
+  email: string | null;
 }
 
 // ContextProps
