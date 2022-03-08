@@ -42,6 +42,12 @@ export type FirebaseQuestions = Record<
     content: string;
     isAnswered: boolean;
     isHighlighted: boolean;
+    likes: Record<
+      string,
+      {
+        authorId: string;
+      }
+    >;
   }
 >;
 
@@ -54,6 +60,8 @@ export interface QuestionsProps {
   content: string;
   isAnswered: boolean;
   isHighlighted: boolean;
+  likeCount: number;
+  likeId: string | undefined;
 }
 
 export interface QuestionProps {
@@ -62,4 +70,5 @@ export interface QuestionProps {
     name: string;
     avatar: string;
   };
+  children?: ReactNode;
 }
