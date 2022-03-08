@@ -1,6 +1,5 @@
 import { QuestionProps } from "../../@types";
-import { SQuestion } from "../../styles/SQuestion";
-import { SUserInfo } from "../../styles/SQuestion";
+import { SQuestion, SUserInfo } from "../../styles/SQuestion";
 
 export function Question({ content, author, children }: QuestionProps) {
   return (
