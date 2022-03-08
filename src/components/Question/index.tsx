@@ -2,7 +2,7 @@ import { QuestionProps } from "../../@types";
 import { SQuestion } from "../../styles/SQuestion";
 import { SUserInfo } from "../../styles/SQuestion";
 
-export function Question({ content, author }: QuestionProps) {
+export function Question({ content, author, children }: QuestionProps) {
   return (
     <SQuestion>
       <p>{content}</p>
@@ -11,7 +11,7 @@ export function Question({ content, author }: QuestionProps) {
           <img src={author.avatar} alt={author.name} />
           <span>{author.name}</span>
         </SUserInfo>
-        <div></div>
+        <div>{children}</div>
       </footer>
     </SQuestion>
   );
