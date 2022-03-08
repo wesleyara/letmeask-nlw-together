@@ -45,7 +45,7 @@ export type FirebaseQuestions = Record<
   }
 >;
 
-export interface Question {
+export interface QuestionsProps {
   id: string;
   author: {
     name: string;
@@ -54,4 +54,12 @@ export interface Question {
   content: string;
   isAnswered: boolean;
   isHighlighted: boolean;
+}
+
+export interface QuestionProps {
+  content: string;
+  author: {
+    name: string;
+    avatar: string;
+  };
 }
