@@ -97,3 +97,19 @@ export const SUserInfo = styled.div`
     font-size: 14px;
   }
 `;
+
+export const SQuestionList = styled.div`
+  margin-top: 32px;
+`;
+
+export const SAdminButton = styled.div`
+  display: flex;
+  gap: 16px;
+
+  button {
+    height: 40px;
+    background-color: white;
+    border: 1px solid #835afd;
+    color: #835afd;
+  }
+`;
