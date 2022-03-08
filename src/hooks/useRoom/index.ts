@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from "react";
 import { database } from "../../services/firebase";
 
 import { FirebaseQuestions, QuestionsProps } from "../../@types";
+import { useAuth } from "../useAuth";
 
 export function useRoom(roomsId: string) {
+  const { user } = useAuth();
   const [questions, setQuestions] = useState<QuestionsProps[]>([]);
   const [title, setTitle] = useState("");
 
@@ -21,6 +24,10 @@ export function useRoom(roomsId: string) {
             author: value.author,
             isHighlighted: value.isHighlighted,
             isAnswered: value.isAnswered,
+            likeCount: Object.values(value.likes ?? {}).length,
+            likeId: Object.entries(value.likes ?? {}).find(
+              ([key, like]) => like.authorId === user?.id,
+            )?.[0],
           };
         },
       );
@@ -28,7 +35,11 @@ export function useRoom(roomsId: string) {
       setTitle(databaseRoom.title);
       setQuestions(parsedQuestions);
     });
-  }, [roomsId]);
+
+    return () => {
+      roomRef.off("value");
+    };
+  }, [roomsId, user?.id]);
 
   return { title, questions };
 }
