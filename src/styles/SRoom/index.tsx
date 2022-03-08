@@ -113,3 +113,25 @@ export const SAdminButton = styled.div`
     color: #835afd;
   }
 `;
+
+export const SLikeButton = styled.button`
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  color: #737380;
+  gap: 8px;
+
+  &.liked {
+    color: #835afd;
+
+    svg path {
+      stroke: #835afd;
+    }
+  }
+
+  &:hover {
+    filter: brightness(0.7);
+  }
+`;
