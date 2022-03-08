@@ -6,47 +6,27 @@ import {
   SFormFooter,
   SHeader,
   SMain,
+  SQuestionList,
   SRoomTitle,
   SUserInfo,
 } from "../../styles/SRoom";
 import { database } from "../../services/firebase";
 
 import { useParams } from "react-router-dom";
-import { RoomParams, FirebaseQuestions, Question } from "../../@types";
-import { FormEvent, useEffect, useState } from "react";
+import { RoomParams } from "../../@types";
+import { FormEvent, useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
+import { Question } from "../../components/Question";
+import { useRoom } from "../../hooks/useRoom";
 
 export function Room() {
   const params = useParams<RoomParams>();
   const roomsId = params.id;
+
+  const { title, questions } = useRoom(roomsId);
   const { user } = useAuth();
 
   const [newQuestion, setNewQuestion] = useState("");
-  const [questions, setQuestions] = useState<Question[]>([]);
-  const [title, setTitle] = useState("");
-
-  useEffect(() => {
-    const roomRef = database.ref(`rooms/${roomsId}`);
-
-    roomRef.on("value", (room) => {
-      const databaseRoom = room.val();
-      const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {};
-      const parsedQuestions = Object.entries(firebaseQuestions).map(
-        ([key, value]) => {
-          return {
-            id: key,
-            content: value.content,
-            author: value.author,
-            isHighlighted: value.isHighlighted,
-            isAnswered: value.isAnswered,
-          };
-        },
-      );
-
-      setTitle(databaseRoom.title);
-      setQuestions(parsedQuestions);
-    });
-  }, [roomsId]);
 
   async function handleSendQuestion(e: FormEvent) {
     e.preventDefault();
@@ -112,6 +92,18 @@ export function Room() {
             </Button>
           </SFormFooter>
         </form>
+
+        <SQuestionList>
+          {questions.map((question) => {
+            return (
+              <Question
+                key={question.id}
+                content={question.content}
+                author={question.author}
+              />
+            );
+          })}
+        </SQuestionList>
       </SMain>
     </div>
   );
