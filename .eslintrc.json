@@ -24,14 +24,8 @@
     "@typescript-eslint"
   ],
   "rules": {
-    "react/react-in-jsx-scope": "off",
-    "no-unused-vars": [
-      "error",
-      {
-        "argsIgnorePattern": "^_",
-        "varsIgnorePattern": "^_"
-      }
-    ]
+    "no-unused-vars": "off",
+    "react/react-in-jsx-scope": "off"
   },
   "settings": {
     "react": {
