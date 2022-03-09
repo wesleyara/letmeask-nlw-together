@@ -71,4 +71,6 @@ export interface QuestionProps {
     avatar: string;
   };
   children?: ReactNode;
+  isAnswered?: boolean;
+  isHighlighted?: boolean;
 }
