@@ -12,7 +12,11 @@ export const SCodeButton = styled.button`
   display: flex;
 
   div {
-    background: #835afd;
+    background-image: linear-gradient(
+      64.5deg,
+      rgba(245, 116, 185, 1) 14.7%,
+      rgba(89, 97, 223, 1) 88.7%
+    );
     padding: 0 12px;
     display: flex;
     justify-content: center;

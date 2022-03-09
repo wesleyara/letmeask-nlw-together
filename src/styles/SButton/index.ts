@@ -4,7 +4,11 @@ export const SButton = styled.button`
   height: 50px;
   border-radius: 8px;
   font-weight: 500;
-  background: #835afd;
+  background: linear-gradient(
+    64.5deg,
+    rgba(245, 116, 185, 1) 14.7%,
+    rgba(89, 97, 223, 1) 88.7%
+  );
   color: #fff;
   padding: 0 32px;
 

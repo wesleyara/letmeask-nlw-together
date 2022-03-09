@@ -8,7 +8,11 @@ export const SPageAuth = styled.div`
   aside {
     flex: 7;
 
-    background: #835afd;
+    background-image: linear-gradient(
+      64.5deg,
+      rgba(245, 116, 185, 1) 14.7%,
+      rgba(89, 97, 223, 1) 88.7%
+    );
     color: #fff;
 
     display: flex;
@@ -96,6 +100,32 @@ export const SMainContent = styled.div`
 
 export const SCreateRoom = styled.button`
   margin-top: 64px;
+  height: 50px;
+  border-radius: 8px;
+  font-weight: 500;
+  background: #ea4335;
+  color: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  border: 0;
+
+  transition: filter 0.2s;
+
+  img {
+    margin-right: 8px;
+  }
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+`;
+
+export const SCreateRoomAuth = styled.button`
+  margin-top: 10px;
   height: 50px;
   border-radius: 8px;
   font-weight: 500;

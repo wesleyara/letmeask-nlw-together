@@ -64,7 +64,11 @@ export const SRoomTitle = styled.div`
 
   span {
     margin-left: 16px;
-    background: #e559f9;
+    background-image: linear-gradient(
+      64.5deg,
+      rgba(245, 116, 185, 1) 14.7%,
+      rgba(89, 97, 223, 1) 88.7%
+    );
     border-radius: 9999px;
     padding: 8px 16px;
     color: #fff;
