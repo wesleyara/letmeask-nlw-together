@@ -7,6 +7,7 @@ import googleIconImg from "../../assets/images/google-icon.svg";
 import { Button } from "../../components/Button";
 import {
   SCreateRoom,
+  SCreateRoomAuth,
   SMainContent,
   SPageAuth,
   SSeparator,
@@ -63,12 +64,26 @@ export function Home() {
       </aside>
       <main>
         <SMainContent>
-          <img src={logoImg} alt="Letmeask" />
-          <SCreateRoom onClick={handleCreateRoom}>
-            <img src={googleIconImg} alt="Logo do Google" />
-            Crie sua sala com o Google
-          </SCreateRoom>
-          <SSeparator>ou entre em uma sala</SSeparator>
+          {!user ? (
+            <>
+              <img src={logoImg} alt="Letmeask" />
+              <SCreateRoom onClick={handleCreateRoom}>
+                <img src={googleIconImg} alt="Logo do Google" />
+                Crie sua sala com o Google
+              </SCreateRoom>
+              <SSeparator>ou entre em uma sala</SSeparator>
+            </>
+          ) : (
+            <>
+              <img src={user.avatar} alt="" />
+              <br />
+              <h1>{user.name}</h1>
+              <SCreateRoomAuth onClick={handleCreateRoom}>
+                Crie sua sala
+              </SCreateRoomAuth>
+              <SSeparator>ou entre em uma sala</SSeparator>
+            </>
+          )}
           <form onSubmit={handleJoinRoom}>
             <input
               type="text"
