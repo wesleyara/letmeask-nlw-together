@@ -11,11 +11,25 @@ export const SQuestion = styled.div`
     color: #29292e;
   }
 
+  &.highlighted {
+    background: #f4f0ff;
+    border: 1px solid #835afd;
+  }
+
+  &.answered {
+    background-color: #dbdcdd;
+  }
+
   footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 24px;
+
+    > div {
+      display: flex;
+      gap: 16px;
+    }
 
     button {
       border: 0;
